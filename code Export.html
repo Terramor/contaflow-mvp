@@ -171,13 +171,13 @@
 </div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<button class="w-full flex items-center justify-center gap-space-xs bg-secondary text-on-secondary py-3 px-space-md rounded-lg font-label-md text-label-md hover:bg-secondary/90 transition-all active:scale-[0.99] shadow-sm" onclick="generateSunatTxt()" type="button">
+<span class="material-symbols-outlined text-[20px]">description</span>
+          Generar TXT para SUNAT
+        </button>
 <button class="w-full flex items-center justify-center gap-space-xs bg-primary-container text-on-primary py-3 px-space-md rounded-lg font-label-md text-label-md hover:bg-primary transition-all active:scale-[0.99] shadow-sm" onclick="triggerDownload()" type="button">
 <span class="material-symbols-outlined text-[20px]">download</span>
           Descargar TXT oficial
-        </button>
-<button class="w-full flex items-center justify-center gap-space-xs bg-surface-container text-on-surface py-3 px-space-md rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="triggerShare()" type="button">
-<span class="material-symbols-outlined text-[20px]">share</span>
-          Enviar a mi contador
         </button>
 </div>
 </section>
@@ -212,9 +212,9 @@
 <!-- Sticky Bottom Processing Bar -->
 <div class="fixed bottom-0 inset-x-0 bg-surface/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(15,42,102,0.08)] p-margin-mobile pb-safe z-40">
 <div class="flex flex-col gap-space-xs max-w-md mx-auto">
-<button class="w-full flex items-center justify-center gap-space-xs bg-primary-container text-on-primary py-3.5 px-space-md rounded-lg font-label-md text-label-md hover:bg-primary transition-all active:scale-[0.99] shadow-sm" onclick="triggerDownload()" type="button">
-<span class="material-symbols-outlined text-[20px]">download_for_offline</span>
-        Descargar archivo TXT (SIRE)
+<button class="w-full flex items-center justify-center gap-space-xs bg-secondary text-on-secondary py-3.5 px-space-md rounded-lg font-label-md text-label-md hover:bg-secondary/90 transition-all active:scale-[0.99] shadow-sm" onclick="generateSunatTxt()" type="button">
+<span class="material-symbols-outlined text-[20px]">description</span>
+        Generar TXT para SUNAT
       </button>
 <button class="w-full text-center py-1 font-label-sm text-label-sm text-on-surface-variant hover:text-primary-container transition-colors" onclick="history.back()" type="button">
         Volver a revisar documentos
@@ -268,5 +268,25 @@
     } else {
       showToast('Enlace preparado para compartir por correo o WhatsApp');
     }
+  }
+
+  function generateSunatTxt() {
+    // Simulación de la lógica de sunat_generator.py
+    const periodo = "202610";
+    const car = "M0001";
+    const carSunat = "M0001";
+    const fechaEmision = "15/10/2026";
+    const tipoDoc = "01";
+    const serie = "F001";
+    const numero = "0012345";
+    const rucEmisor = "20123456789";
+    const razonSocial = "DISTRIBUIDORA XYZ SAC";
+    const baseImponible = "1000.00";
+    const igv = "180.00";
+    const total = "1180.00";
+
+    const txtContent = `${periodo}|${car}|${carSunat}|${fechaEmision}|${tipoDoc}|${serie}|${numero}|${rucEmisor}|${razonSocial}|${baseImponible}|${igv}|${total}|`;
+
+    alert("Contenido del archivo TXT generado para SUNAT:\n\n" + txtContent);
   }
 </script></main></body></html>
